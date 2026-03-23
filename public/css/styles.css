@@ -22,7 +22,7 @@ h1, h2 {
 
 p {
   font-family: "Poppins", sans-serif;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 #tools a {
@@ -60,7 +60,15 @@ nav ul li{
   color: white;
   font-family: "Poppins", sans-serif;
 }
+nav ul li a{
+  color: white;
+  text-decoration: none;
+}
 
+nav ul li:hover{
+  background-color: #555;
+  cursor: pointer;
+}
 
 #wrapper{
   max-width: 1000px;
@@ -143,6 +151,54 @@ nav ul li{
   font-family: "Poppins", sans-serif;
 }
 
+#inv-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+#inv-display li {
+  width: 30%;
+  text-align: center;
+  list-style-type: none;
+  border-radius: 8px;
+  border: 2px solid #ccc;
+}
+
+#inv-display li img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+#inv-display li .namePrice span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+
+.vehicle-detail {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.vehicle-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.vehicle-info {
+  max-width: 500px;
+}
+
+@media (max-width: 768px) {
+  
+}
+
 /* Responsive Design */
 
 @media  (max-width: 1024px) {
@@ -201,8 +257,19 @@ nav ul li{
   .item2{
     order: 1;
   }
+
+  .vehicle-detail {
+    flex-direction: column;
+  }
 }
 
+
+footer p {
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: normal;
+}
 
 @media screen and (max-width: 480px) {
   .container {
