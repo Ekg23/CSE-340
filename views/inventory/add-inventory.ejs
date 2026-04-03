@@ -1,0 +1,79 @@
+<h1>Add New Vehicle to Inventory</h1>
+
+<!-- Flash message -->
+<% if (messages.notice) { %>
+    <div class="notice">
+        <%= messages.notice %>
+    </div>
+    <% } %>
+
+<!-- Validation errors -->
+
+<section class="add-inventory">
+    <form action="/inv/add-inventory" method="post">
+
+        <!-- Classification Select -->
+        <label for="classification_id">Classification</label>
+        <select id="classification_id" name="classification_id" required>
+            <option value="">Select a classification</option>
+            <% classifications.forEach(classification=> { %>
+                <option value="<%= classification.classification_id %>" <%=typeof inventory !=='undefined' &&
+                    inventory.classification_id==classification.classification_id ? 'selected' : '' %>
+                    >
+                    <%= classification.classification_name %>
+                </option>
+                <% }) %>
+        </select>
+
+        <!-- Make -->
+        <label for="inv_make">Make</label>
+        <input type="text" id="inv_make" name="inv_make" required pattern="^[A-Za-z0-9\s]+$"
+            title="Only letters, numbers, and spaces allowed"
+            value="<%= typeof inventory !== 'undefined' ? inventory.inv_make : '' %>" placeholder="Min of 3 Characters">
+
+        <!-- Model -->
+        <label for="inv_model">Model</label>
+        <input type="text" id="inv_model" name="inv_model" required pattern="^[A-Za-z0-9\s]+$"
+            title="Only letters, numbers, and spaces allowed"
+            value="<%= typeof inventory !== 'undefined' ? inventory.inv_model : '' %>" placeholder="Min of 3 Characters">
+
+        <!-- Description -->
+        <label for="inv_description">Description</label>
+        <textarea id="inv_description" name="inv_description"
+            required><%= typeof inventory !== 'undefined' ? inventory.inv_description : '' %></textarea>
+
+        <!-- Image URL -->
+        <label for="inv_image">Image URL</label>
+        <input type="url" id="inv_image" name="inv_image" required
+            value="<%= typeof inventory !== 'undefined' ? inventory.inv_image : '' %>">
+
+        <!-- Thumbnail URL -->
+        <label for="inv_thumbnail">Thumbnail URL</label>
+        <input type="url" id="inv_thumbnail" name="inv_thumbnail" required
+            value="<%= typeof inventory !== 'undefined' ? inventory.inv_thumbnail : '' %>">
+
+        <!-- Price -->
+        <label for="inv_price">Price ($)</label>
+        <input type="number" id="inv_price" name="inv_price" required min="0" step="0.01"
+            value="<%= typeof inventory !== 'undefined' ? inventory.inv_price : '' %>" placeholder="Decimal or Integer">
+
+        <!-- Year -->
+        <label for="inv_year">Year</label>
+        <input type="number" id="inv_year" name="inv_year" required min="1886" step="1"
+            value="<%= typeof inventory !== 'undefined' ? inventory.inv_year : '' %>" placeholder="4-digits year">
+
+        <!-- Miles -->
+        <label for="inv_miles">Miles</label>
+        <input type="number" id="inv_miles" name="inv_miles" required min="0" step="1"
+            value="<%= typeof inventory !== 'undefined' ? inventory.inv_miles : '' %>" placeholder="Digits only">    
+
+        <!-- Color -->
+        <label for="inv_color">Color</label>
+        <input type="text" id="inv_color" name="inv_color" required pattern="^[A-Za-z\s]+$"
+            title="Only letters and spaces allowed"
+            value="<%= typeof inventory !== 'undefined' ? inventory.inv_color : '' %>" placeholder="e.g., Red, Blue, Black">
+
+        <button type="submit">Add Vehicle</button>
+    </form>
+</section>
+</main>

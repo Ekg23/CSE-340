@@ -1,0 +1,38 @@
+<h1>
+    <%= title %>
+</h1>
+<!-- ✅ Flash Message -->
+<% if (messages.notice) { %>
+    <div class="notice">
+        <%= messages.notice %>
+    </div>
+    <% } %>
+
+    <!-- ✅ Validation Errors -->
+    <% if (errors) { %>
+        <ul class="notice">
+            <% errors.array().forEach(error=> { %>
+                <li>
+                    <%= error.msg %>
+                </li>
+                <% }) %>
+        </ul>
+        <% } %>
+
+
+<section class="classification">
+    <p>
+        FIELD IS REQUIRED.
+    </p>
+    <form action="/inv/add-classification" method="post">
+        <h2>Classification Name</h2>
+        <h3>NAME MUST BE ALPHABETIC CHARACTERS ONLY.</h3>
+    
+        <label for="classification_name">Classification Name</label>
+        <input type="text" id="classification_name" name="classification_name" required pattern="^[A-Za-z0-9]+$"
+            title="Only letters and numbers allowed. No spaces or special characters."
+            value="<%= typeof classification_name !== 'undefined' ? classification_name : '' %>">
+    
+        <button type="submit">Add Classification</button>
+    </form>
+</section>

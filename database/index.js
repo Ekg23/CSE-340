@@ -9,17 +9,17 @@ require("dotenv").config();
  * *************** */
 let pool;
 
-if (process.env.NODE_ENV === "development") {
-  pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: false, // no SSL in development
-  });
-} else {
+//if (process.env.NODE_ENV === "development") {
+//  pool = new Pool({
+//    connectionString: process.env.DATABASE_URL,
+  //  ssl: false, // no SSL in development
+//  });
+//} else {
   pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false }, // SSL required in production
   });
-}
+//}
 
 // Export query wrapper
 module.exports = {

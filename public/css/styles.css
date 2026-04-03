@@ -195,9 +195,207 @@ nav ul li:hover{
   max-width: 500px;
 }
 
-@media (max-width: 768px) {
-  
+/* Flash Message Styles */
+.notice {
+  background-color: #f0ad4e;
+  color: white;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+  z-index: -1;
 }
+
+
+
+/* Login Page Styles */
+.login {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.login label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  ;
+}
+
+.login button {
+  display: block;
+  width: 45%;
+  padding: 10px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login p {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+
+/* Register Page Styles */
+
+.register {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.register label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.register button {
+  display: block;
+  width: 35%;
+  padding: 15px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 0 0;
+}
+.register input[type="text"],
+.register input[type="email"],
+.register input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.register input:required:invalid, .register input:focus:invalid {
+  border-left: 4px solid red;
+}
+
+.register input:required:valid {
+  border-left: 4px solid green;
+}
+
+
+
+/* Inventory Management Styles */
+.management ul li {
+  font-size: 18px;
+  margin-top: 3px;
+}
+
+
+.classification {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #7bb5f3;
+}
+
+.classification label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+.classification button {
+  display: block;
+  width: 50%;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+.classification input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.classification form {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+
+/* Add Inventory Styles */
+.add-inventory {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #7bb5f3;
+}
+
+.add-inventory label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  color: black;
+}
+
+.add-inventory button {
+  display: block;
+  width: 50%;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+.add-inventory input[type="text"],
+.add-inventory input[type="number"],
+.add-inventory input[type="select"],
+.add-inventory input[type="url"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.add-inventory textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
 
 /* Responsive Design */
 
@@ -270,6 +468,7 @@ footer p {
   margin-top: 20px;
   font-weight: normal;
 }
+
 
 @media screen and (max-width: 480px) {
   .container {
