@@ -8,6 +8,15 @@
     <% } %>
 
 <!-- Validation errors -->
+<% if (errors && errors.length> 0) { %>
+    <ul class="error-list">
+    <% errors.forEach(error=> { %>
+        <li>
+            <%= error.msg %>
+        </li>
+        <% }) %>
+    </ul>
+    <% } %>
 
 <section class="add-inventory">
     <form action="/inv/add-inventory" method="post">
@@ -45,12 +54,12 @@
         <!-- Image URL -->
         <label for="inv_image">Image URL</label>
         <input type="url" id="inv_image" name="inv_image" required
-            value="<%= typeof inventory !== 'undefined' ? inventory.inv_image : '' %>">
+            value="<%= typeof inventory !== 'undefined' ? inventory.inv_image : '' %>" placeholder="e.g., /images/cars/car1.jpg">
 
         <!-- Thumbnail URL -->
         <label for="inv_thumbnail">Thumbnail URL</label>
         <input type="url" id="inv_thumbnail" name="inv_thumbnail" required
-            value="<%= typeof inventory !== 'undefined' ? inventory.inv_thumbnail : '' %>">
+            value="<%= typeof inventory !== 'undefined' ? inventory.inv_thumbnail : '' %>" placeholder="e.g., /images/cars/car1_thumbnail.jpg">
 
         <!-- Price -->
         <label for="inv_price">Price ($)</label>

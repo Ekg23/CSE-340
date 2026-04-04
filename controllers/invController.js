@@ -92,30 +92,47 @@ invCont.buildAddInventory = async function (req, res, next) {
   })
 }
 
+
 invCont.addInventory = async function (req, res) {
-  const { body } = req
-  const result = await invModel.insertInventory(body)
+  const { body } = req;
+
+  // Check for validation errors from middleware
+  if (req.errors && req.errors.length > 0) {
+    // If errors exist, re-render the form with errors and sticky fields
+    const nav = await utilities.getNav();
+    const classifications = await invModel.getClassifications();
+    return res.render("inventory/add-inventory", {
+      title: "Add Inventory",
+      nav,
+      classifications,
+      errors: req.errors, // Show validation errors
+      inventory: body, // Sticky inputs
+    });
+  }
+
+  // If no errors, proceed to insert the vehicle
+  const result = await invModel.insertInventory(body);
 
   if (result) {
-    const nav = await utilities.getNav()
-    req.flash("notice", `Vehicle "${body.inv_make} ${body.inv_model}" added successfully.`)
+    const nav = await utilities.getNav();
+    req.flash("notice", `Vehicle "${body.inv_make} ${body.inv_model}" added successfully.`);
     res.render("inventory/management", {
       title: "Inventory Management",
       nav,
       message: req.flash("notice")
-    })
+    });
   } else {
-    const nav = await utilities.getNav()
-    const classifications = await invModel.getClassifications()
-    req.flash("notice", "Failed to add vehicle.")
+    const nav = await utilities.getNav();
+    const classifications = await invModel.getClassifications();
+    req.flash("notice", "Failed to add vehicle.");
     res.render("inventory/add-inventory", {
       title: "Add Inventory",
       nav,
       classifications,
-      inventory: body, // sticky values
-      errors: null // validation errors should have been handled by middleware, so this is just a fallback
-    })
+      inventory: body, // sticky input values
+      errors: null, // fallback, though validation errors should have been handled already
+    });
   }
-}
+};
 
-module.exports = invCont
+module.exports = invCont;
