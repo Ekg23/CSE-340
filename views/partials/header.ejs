@@ -3,7 +3,13 @@
         <img src="/images/site/icon.png" alt="EKG Motors logo">
         <a href="/" title="Return to home page">EKG Motors</a>
     </span>
-    <div id="tools">
-        <a title="Click to log in" href="/account/login">My Account</a>
+    <div class="tools">
+        <% if (loggedin) { %>
+            <span>Welcome, <%= accountData.account_firstname %></span>
+            |
+            <a href="/account/logout">Logout</a>
+            <% } else { %>
+                <a href="/account/login">Account</a>
+                <% } %>
     </div>
 </header>

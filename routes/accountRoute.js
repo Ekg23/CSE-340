@@ -5,6 +5,12 @@ const accountController = require("../controllers/accountController")
 const regValidate = require('../utilities/account-validation')
 
 router.get("/login", utilities.handleErrors(accountController.buildLogin))
+router.post(
+  "/login",
+  regValidate.loginRules(),
+  regValidate.checkLoginData,
+  utilities.handleErrors(accountController.accountLogin)
+)
 
 router.get("/register", utilities.handleErrors(accountController.buildRegister))
 router.post("/register",
@@ -12,6 +18,29 @@ router.post("/register",
   regValidate.checkRegData,
   utilities.handleErrors(accountController.registerAccount))
 
+router.get(
+  "/",
+  utilities.checkLogin,
+  utilities.checkEmployee,
+  utilities.handleErrors(accountController.buildAccountManagement)
+)
+
+router.get(
+  "/logout",
+  utilities.handleErrors(accountController.logoutAccount)
+)
+
+router.get("/update/",
+  utilities.checkLogin,
+  utilities.handleErrors(accountController.buildUpdate))
+
+router.post(
+  "/update/",
+  utilities.checkLogin,
+  regValidate.updateRules(),
+  regValidate.checkUpdateData,
+  utilities.handleErrors(accountController.updateAccount)
+)  
 
 /* ***********************
 * Express Error Handler

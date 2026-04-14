@@ -197,8 +197,7 @@ nav ul li:hover{
 
 /* Flash Message Styles */
 .notice {
-  background-color: #f0ad4e;
-  color: white;
+  color: red;
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
@@ -407,6 +406,145 @@ nav ul li:hover{
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+
+
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+#inventoryDisplay th {
+  background-color: #7bb5f3;
+  color: white;
+  padding: 10px;
+}
+#inventoryDisplay td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+
+#inventoryDisplay img {
+  width: 100px;
+  height: auto;
+  border-radius: 5px;
+}
+
+
+.delete-inventory {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #7bb5f3;
+}
+
+.delete-inventory form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  color: black;
+}
+
+.delete-inventory form input[type="text"],
+.delete-inventory form input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.delete-inventory form button {
+  display: block;
+  width: 50%;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+
+/* Account Update Styles */
+.updateAccount-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;  
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #7bb5f3;
+}
+.updateAccount-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  color: black;
+}
+.updateAccount-form button {
+  display: block;
+  width: 50%;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+}
+.updateAccount-form input[type="text"],
+.updateAccount-form input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.changePassword-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;  
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #7bb5f3;
+}
+
+.changePassword-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  color: black;
+}
+
+.changePassword-form button {
+  display: block;
+  width: 50%;
+  padding: 10px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  margin: 0 auto;
+}
+.changePassword-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+.account-update h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Inter", sans-serif;
 }
 
 

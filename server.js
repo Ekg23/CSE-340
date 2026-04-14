@@ -5,6 +5,7 @@
 /* ***********************
  * Require Statements
  *************************/
+const cookieParser = require("cookie-parser")
 const session = require("express-session")
 const pool = require('./database/')
 const express = require("express")
@@ -29,6 +30,8 @@ app.use(express.static("public"));
 /* ***********************
  * Middleware
  * ************************/
+app.use(cookieParser())
+
  app.use(session({
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
@@ -41,6 +44,9 @@ app.use(express.static("public"));
 }))
 
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 // Express Messages Middleware
 app.use(require('connect-flash')())
 app.use(function(req, res, next){
@@ -48,9 +54,7 @@ app.use(function(req, res, next){
   next()
 })
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
-
+app.use(utilities.checkJWTToken)
 
 /* ***********************
  * View Engine and Templates

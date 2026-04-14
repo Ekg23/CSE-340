@@ -1,0 +1,82 @@
+<h1>Edit Vehicle</h1>
+
+<!-- Flash message -->
+<% if (message && message.length> 0) { %>
+    <div class="notice">
+        <%= message[0] %>
+    </div>
+    <% } %>
+
+<!-- Validation errors -->
+<% if (errors && errors.length> 0) { %>
+    <ul class="error-list">
+    <% errors.forEach(error=> { %>
+        <li>
+            <%= error.msg %>
+        </li>
+        <% }) %>
+    </ul>
+    <% } %>
+
+<section class="add-inventory">
+    <form action="/inv/update" method="post" id="updateForm">
+
+        <!-- Classification Select -->
+        <label for="classification_id">Classification</label>
+        <%- classificationSelect %>
+
+        <!-- Make -->
+        <label for="inv_make">Make</label>
+        <input type="text" id="inv_make" name="inv_make" required pattern="^[A-Za-z0-9\s]+$"
+            title="Only letters, numbers, and spaces allowed"
+            value="<%= inv_make %>" placeholder="Min of 3 Characters">
+
+        <!-- Model -->
+        <label for="inv_model">Model</label>
+        <input type="text" id="inv_model" name="inv_model" required pattern="^[A-Za-z0-9\s]+$"
+            title="Only letters, numbers, and spaces allowed"
+            value="<%= inv_model %>" placeholder="Min of 3 Characters">
+
+        <!-- Description -->
+        <label for="inv_description">Description</label>
+        <textarea id="inv_description" name="inv_description"
+            required> <%= inv_description  %></textarea>
+
+        <!-- Image URL -->
+        <label for="inv_image">Image URL</label>
+        <input type="text" id="inv_image" name="inv_image" required pattern="^\/images\/.+\.(jpg|jpeg|png|webp)$"
+            value="<%=  inv_image  %>" placeholder="e.g., /images/cars/car1.jpg">
+
+        <!-- Thumbnail URL -->
+        <label for="inv_thumbnail">Thumbnail URL</label>
+        <input type="text" id="inv_thumbnail" name="inv_thumbnail" required pattern="^\/images\/.+\.(jpg|jpeg|png|webp)$"
+            value="<%= inv_thumbnail %>" placeholder="e.g., /images/cars/car1_thumbnail.jpg">
+
+        <!-- Price -->
+        <label for="inv_price">Price ($)</label>
+        <input type="number" id="inv_price" name="inv_price" required min="0" step="0.01"
+            value="<%=  inv_price %>" placeholder="Decimal or Integer">
+
+        <!-- Year -->
+        <label for="inv_year">Year</label>
+        <input type="number" id="inv_year" name="inv_year" required min="1886" step="1"
+            value="<%= inv_year %>" placeholder="4-digits year">
+
+        <!-- Miles -->
+        <label for="inv_miles">Miles</label>
+        <input type="number" id="inv_miles" name="inv_miles" required min="0" step="1"
+            value="<%= inv_miles  %>" placeholder="Digits only">    
+
+        <!-- Color -->
+        <label for="inv_color">Color</label>
+        <input type="text" id="inv_color" name="inv_color" required pattern="^[A-Za-z\s]+$"
+            title="Only letters and spaces allowed"
+            value="<%= inv_color  %>" placeholder="e.g., Red, Blue, Black">
+
+        <button type="submit" disabled>Update Vehicle</button>
+        <input type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+            <% } %>>
+    </form>
+</section>
+</main>
+<script src="/js/inv-update.js"></script>
